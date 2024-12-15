@@ -8,15 +8,16 @@ if not caminho_ffmpeg:
     raise EnvironmentError("Configure o caminho do FFmpeg no arquivo .env")
 
 
-def baixar_video_youtube(url, pasta_destino="./audioTest"):
+def baixar_video_youtube(url, pasta_destino="./audio-downloads"):
     try:
         opcoes_do_download = {
             'outtmpl': f'{pasta_destino}/%(title)s.%(ext)s',
-            'format' : 'bestaudio',
+            'format' : 'bestaudio/best',
             'ffmpeg_location': caminho_ffmpeg,
             'postprocessors':[{
                 'key' : 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3'
+                'preferredcodec': 'mp3',
+                'preferredquality' : '192'
             }]
         }
         
