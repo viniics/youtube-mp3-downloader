@@ -3,13 +3,18 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+#Busca o caminho para o FFMpeg, que deve ser configurado nas variáveis de ambiente ou num arquivo .env
+# No segundo caso, esse arquivo deve ser criado no diretório raíz desse projeto
 caminho_ffmpeg = os.getenv('FFMPEG_LOCATION')
 if not caminho_ffmpeg:
     raise EnvironmentError("Configure o caminho do FFmpeg no arquivo .env")
 
 
-def baixar_video_youtube(url, pasta_destino="./audio-downloads"):
+def baixar_musica(url, pasta_destino="./audio-downloads"):
     try:
+        # Configuracoes para baixar audio no formato mp3
+        # Conforme o projeto for evoluindo, serao adicionadas outras configuracoes 
+        # que serao obtidas via requisicao web 
         opcoes_do_download = {
             'outtmpl': f'{pasta_destino}/%(title)s.%(ext)s',
             'format' : 'bestaudio/best',
