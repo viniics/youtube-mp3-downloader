@@ -9,8 +9,11 @@ caminho_ffmpeg = os.getenv('FFMPEG_LOCATION')
 if not caminho_ffmpeg:
     raise EnvironmentError("Configure o caminho do FFmpeg no arquivo .env")
 
+# Define onde sera a pasta de destino dos Downloads
+# Por padrao: './audio-downloads'
+pasta_destino="./audio-downloads"
 
-def baixar_musica(url, pasta_destino="./audio-downloads"):
+def baixar_musica(url):
     try:
         # Configuracoes para baixar audio no formato mp3
         # Conforme o projeto for evoluindo, serao adicionadas outras configuracoes 
@@ -29,7 +32,6 @@ def baixar_musica(url, pasta_destino="./audio-downloads"):
         with yt_dlp.YoutubeDL(opcoes_do_download) as ydl:
             info = ydl.extract_info(url, download=True)
             caminho_arquivo = ydl.prepare_filename(info)
-            print(f"Download concluído: {caminho_arquivo}")
             return caminho_arquivo
     except Exception as e:
         print(f"{e}")
