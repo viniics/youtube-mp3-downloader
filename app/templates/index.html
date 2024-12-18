@@ -3,15 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Youtube MP3 Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 
-<body>
-    <div id="download-form">
+<body class="bg-dark text-white p-3">
+    <nav class="navbar text-white">
+        <div class="container-fluid">
+          <span class="lead shadow-sm navbar-brand mb-3 text-primary"><p class="fw-medium position-absolute top-50 start-50 translate-middle fs-1">Free Youtube MP3 Downloader</p></span>
+        </div>
+      </nav>
+
+    <div id="download-form" class="position-absolute top-50 start-50 translate-middle" >
         <form action="/baixar_audio" method="POST">
-            <input type="text" id="url" name="url" placeholder="Insira o link do video para converter" required>
-            <button type="submit">Baixar Audio</button>
+            <input type="text" id="url" name="url" class="w-100 h-auto p-2 position-relative top-50 start-50 translate-middle" placeholder="Insira o link do video para converter" required>
+            <button id="submit-btn" type="submit" class = "btn btn-primary position-relative top-50 start-50 translate-middle ">Baixar Audio</button>
         </form>
     </div>
 
@@ -20,7 +28,8 @@
         <!-- A resposta do servidor será mostrada aqui -->
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="/../static/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
