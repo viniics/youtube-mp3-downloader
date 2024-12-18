@@ -6,7 +6,7 @@ const successDownloadHTML = `<div id = "success" class="alert alert-success" rol
 const failDownloadHTML = `<div id = "fail" class="alert alert-danger" role="alert">Ocorreu um erro no Download</div>`
 const emptyHtml = ``;
 
-function clearAtSubmit() {
+function atSubmit() {
     loadingSpinner.innerHTML = spinnerHTML;
     responseStatus.innerHTML = emptyHtml;
 }
@@ -25,7 +25,7 @@ function toggleButtonVisibility(isLoading) {
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    clearAtSubmit();
+    atSubmit();
     toggleButtonVisibility(true);
     const formData = new FormData(form);
     try {
