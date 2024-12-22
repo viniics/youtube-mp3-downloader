@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_file
 from utils import baixar_musica
 import webbrowser
+import os
 app = Flask(__name__)
 initalized = False
 @app.route('/')
@@ -16,14 +17,14 @@ def baixar_audio():
     try:
         # Chamar a função de download
         caminho_arquivo = baixar_musica(url)
-        return jsonify({'success': True, 'download': caminho_arquivo})
+        print(f"Arquivo gerado: {caminho_arquivo}")
+        return send_file(caminho_arquivo,as_attachment=True)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
 def abrir_navegador():
-    #webbrowser.open_new("http://127.0.0.1:5000")
-    print("ok")
-
+    webbrowser.open_new("http://127.0.0.1:5000")
+    
 def initialize():
     abrir_navegador()
 

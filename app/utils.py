@@ -11,7 +11,7 @@ if not caminho_ffmpeg:
 
 # Define onde sera a pasta de destino dos Downloads
 # Por padrao: './audio-downloads'
-pasta_destino="./audio-downloads"
+pasta_destino = os.path.abspath("./audio-downloads")
 
 def baixar_musica(url):
     try:
@@ -32,6 +32,7 @@ def baixar_musica(url):
         with yt_dlp.YoutubeDL(opcoes_do_download) as ydl:
             info = ydl.extract_info(url, download=True)
             caminho_arquivo = ydl.prepare_filename(info)
-            return caminho_arquivo
+            caminho_arquivo_mp3 = caminho_arquivo.rsplit('.', 1)[0] + '.mp3'
+            return caminho_arquivo_mp3
     except Exception as e:
         print(f"{e}")
