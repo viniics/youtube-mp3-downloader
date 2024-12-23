@@ -16,8 +16,6 @@ pasta_destino = os.path.abspath("./audio-downloads")
 def baixar_musica(url):
     try:
         # Configuracoes para baixar audio no formato mp3
-        # Conforme o projeto for evoluindo, serao adicionadas outras configuracoes 
-        # que serao obtidas via requisicao web 
         opcoes_do_download = {
             'outtmpl': f'{pasta_destino}/%(title)s.%(ext)s',
             'format' : 'bestaudio/best',
